@@ -53,7 +53,10 @@ struct addrinfo {
 - sockaddr
   - sa_family 
     - Tells us the address family of this instance of sockaddr
-    - The AF_INET address family represents IPv4 addresses. There are others, such as AF_INET6 or AF_UNSPEC
+    - The AF_INET address family represents IPv4 addresses. There are others, such as AF_INET6 (IPv6) or AF_UNSPEC (IPv4 or/and IPv6). 
+    - **NOTE** 
+      - AF_INET has sockaddr_in. We cast sockaddr to sockaddr_in to access sin_addr variable were the internet adress is stored.
+      - AF_INET6 har sockaddr_in6
 ```
 struct sockaddr {
     sa_family_t sa_family;
@@ -86,4 +89,5 @@ struct in_addr {
 
 </br>
 
-- [inet_ntop](http://man7.org/linux/man-pages/man3/inet_ntop.3.html)
+- [inet_ntop()](http://man7.org/linux/man-pages/man3/inet_ntop.3.html)
+  - Method to convert in_addr struct to IP string
