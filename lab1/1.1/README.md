@@ -51,6 +51,9 @@ struct addrinfo {
 </br>
 
 - sockaddr
+  - sa_family 
+    - Tells us the address family of this instance of sockaddr
+    - The AF_INET address family represents IPv4 addresses. There are others, such as AF_INET6 or AF_UNSPEC
 ```
 struct sockaddr {
     sa_family_t sa_family;
@@ -58,9 +61,6 @@ struct sockaddr {
     sa_data[14];
 }
 ```
-  - sa_family 
-    - Tells us the address family of this instance of sockaddr
-    - The AF_INET address family represents IPv4 addresses. There are others, such as AF_INET6 or AF_UNSPEC
 
 </br>
 
