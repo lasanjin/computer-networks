@@ -68,21 +68,19 @@ int main(int aArgc, char *aArgv[])
 addrinfo get_params()
 {
 	/* 
-		Init addrinfo structure that specifies criteria for 
-		selecting the socket address structures 
+	 * Init addrinfo struct that specifies criteria for 
+	 * selecting the socket address structures 
 	 */
 	struct addrinfo params;
 
 	// Make sure the struct is empty
 	memset(&params, 0, sizeof params);
 
-	/*
-		This way we won’t get “duplicate” IPv4 addresses 
-		in the results simply because several socket types 
-		and protocols are available.
-	 */
-	params.ai_protocol = IPPROTO_TCP; // <arpa/inet.h>
-	params.ai_socktype = SOCK_STREAM; // TCP stream sockets
+	// Protocol parameter for TCP socket
+	params.ai_protocol = IPPROTO_TCP;
+
+	// TCP stream sockets
+	params.ai_socktype = SOCK_STREAM;
 
 	// Allow IPv4 and/or IPv6
 	params.ai_family = AF_UNSPEC;
@@ -97,7 +95,7 @@ addrinfo get_params()
 
 addrinfo *getaddrinfo(const char *remoteHostName, struct addrinfo *params)
 {
-	// getaddrinfo returnes a list pointed to by res
+	// getaddrinfo returnes a linked list pointed to by res
 	struct addrinfo *res;
 
 	int msg_code = getaddrinfo(remoteHostName, NULL, params, &res);

@@ -16,14 +16,14 @@ $ chmod +x output
 $ ./output chalmers.se
 ```
 
-4. Output
+4. Result
 ```
 Resolving `chalmers.se' from `<hostname>':
 IPv4: 129.16.71.10
 IPv6: 2001:6b0:2:200c::7110
 ```
 
-5. Check output IPv4 and IPv6
+1. Check result
 ```
 $ host chalmers.se
 ```
