@@ -33,6 +33,7 @@ $ host chalmers.se
 ## Documentation
 
 - [getaddrinfo()](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
+  - The getaddrinfo() function allocates and initializes a linked list of addrinfo structures, one for each network address that matches node and service, subject to any restrictions imposed by hints, and returns a pointer to the start of the list in res.  The items in the linked list are linked by the ai_next field.
 
 ```
 struct addrinfo {
@@ -47,10 +48,9 @@ struct addrinfo {
 };
 ```
 
+</br>
+
 - sockaddr
-  - sa_family 
-    - Tells us the address family of this instance of sockaddr
-    - The AF_INET address family represents IPv4 addresses. There are others, such as AF_INET6 or AF_UNSPEC
 ```
 struct sockaddr {
     sa_family_t sa_family;
@@ -58,6 +58,11 @@ struct sockaddr {
     sa_data[14];
 }
 ```
+  - sa_family 
+    - Tells us the address family of this instance of sockaddr
+    - The AF_INET address family represents IPv4 addresses. There are others, such as AF_INET6 or AF_UNSPEC
+
+</br>
 
 - sockaddr_in
 ```
@@ -70,11 +75,15 @@ struct sockaddr_in {
 };
 ```
 
+</br>
+
 - in_addr
 ```
 struct in_addr {
     uint32_t	s_addr;         // Address in network byte order
 };
 ```
+
+</br>
 
 - [inet_ntop](http://man7.org/linux/man-pages/man3/inet_ntop.3.html)
