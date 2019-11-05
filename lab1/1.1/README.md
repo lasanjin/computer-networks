@@ -23,7 +23,7 @@ IPv4: 129.16.71.10
 IPv6: 2001:6b0:2:200c::7110
 ```
 
-1. Check result
+5. Check result
 ```
 $ host chalmers.se
 ```
