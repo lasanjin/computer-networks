@@ -1,5 +1,3 @@
-[⌫ back](../README.md)
-
 # Notes
 My notes from Computer Networks course at Chalmers.
 

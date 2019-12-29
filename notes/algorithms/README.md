@@ -1,5 +1,3 @@
-[⌫ back](README.md)
-
 # Algorithms
 I wrote down all the [algorithms](algorithms.pdf) that we learned and proved during the course from the course literature *Self-Stabilization* by Shlomi Dolev.
 
