@@ -16,41 +16,40 @@
 
 void print_usage(const char *aProgramName);
 addrinfo get_params();
-addrinfo **getaddrinfo(const char *remoteHostName, struct addrinfo *params);
+addrinfo **getaddrinfo(const char *remote_hostname, struct addrinfo *params);
 void print_ip(addrinfo *res);
 
-int main(int aArgc, char *aArgv[]) {
+int main(int aArgc, char *aArgv[])
+{
   // Check if the user supplied a command line argument.
-  if (aArgc != 2) {
+  if (aArgc != 2)
+  {
     print_usage(aArgv[0]);
     return 1;
   }
 
   // The (only) argument is the remote host that we should resolve.
-  const char *remoteHostName = aArgv[1];
+  const char *remote_hostname = aArgv[1];
 
   // Get the local host's name (i.e. the machine that the program is
   // currently running on).
-  const size_t kHostNameMaxLength = HOST_NAME_MAX + 1;
-  char localHostName[kHostNameMaxLength];
+  const size_t hostname_max_length = HOST_NAME_MAX + 1;
+  char local_hostname[hostname_max_length];
 
-  if (-1 == gethostname(localHostName, kHostNameMaxLength)) {
+  if (-1 == gethostname(local_hostname, hostname_max_length))
+  {
     perror("gethostname(): ");
     return 1;
   }
 
   // Print the initial message
-  printf("Resolving `%s' from `%s':\n", remoteHostName, localHostName);
-
-  /* - - - - - - - - - - - - - - - - - - - - - - - - - - -
-          TODO : add your code below
-   - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+  printf("Resolving `%s' from `%s':\n", remote_hostname, local_hostname);
 
   // Get criteria for selecting the socket address structures
   struct addrinfo params = get_params();
 
   // Get internet address(es) from hostname
-  struct addrinfo **res = getaddrinfo(remoteHostName, &params);
+  struct addrinfo **res = getaddrinfo(remote_hostname, &params);
 
   // Print IPv4 and/or IPv6
   print_ip(res);
@@ -62,7 +61,8 @@ int main(int aArgc, char *aArgv[]) {
   return 0;
 }
 
-addrinfo get_params() {
+addrinfo get_params()
+{
   /*
    * Init addrinfo struct that specifies criteria for
    * selecting the socket address structures
@@ -89,14 +89,16 @@ addrinfo get_params() {
   return params;
 }
 
-addrinfo **getaddrinfo(const char *remoteHostName, struct addrinfo *params) {
+addrinfo **getaddrinfo(const char *remote_hostname, struct addrinfo *params)
+{
   // getaddrinfo returnes a linked list pointed to by res
   struct addrinfo **res;
 
-  int msg_code = getaddrinfo(remoteHostName, NULL, params, res);
+  int msg_code = getaddrinfo(remote_hostname, NULL, params, res);
 
   // Check getaddrinfo return value for errors
-  if (msg_code != 0) {
+  if (msg_code != 0)
+  {
     printf("Error in getaddrinfo: %s\n", gai_strerror(msg_code));
     _exit;
   }
@@ -104,14 +106,16 @@ addrinfo **getaddrinfo(const char *remoteHostName, struct addrinfo *params) {
   return res;
 }
 
-void print_ip(addrinfo *res) {
+void print_ip(addrinfo *res)
+{
   // Pointer linked list
   struct addrinfo *next;
 
   // IPv4, IPv6 both fit
   char ip_arr[INET6_ADDRSTRLEN];
 
-  for (next = res; next != NULL; next = next->ai_next) {
+  for (next = res; next != NULL; next = next->ai_next)
+  {
     // sockaddr_in, sockaddr_in6
     void *ip_addr;
 
@@ -119,7 +123,8 @@ void print_ip(addrinfo *res) {
     int protocol_family = next->ai_family;
 
     // IPv4
-    if (protocol_family == AF_INET) {
+    if (protocol_family == AF_INET)
+    {
       // Cast sockaddr to sockaddr_in
       struct sockaddr_in *ipv4 = (struct sockaddr_in *)next->ai_addr;
 
@@ -130,7 +135,8 @@ void print_ip(addrinfo *res) {
     }
 
     // IPv6
-    else {
+    else
+    {
       struct sockaddr_in6 *ipv6 = (struct sockaddr_in6 *)next->ai_addr;
       ip_addr = &(ipv6->sin6_addr);
       ipv = "IPv6";
@@ -143,6 +149,7 @@ void print_ip(addrinfo *res) {
   }
 }
 
-void print_usage(const char *aProgramName) {
+void print_usage(const char *aProgramName)
+{
   fprintf(stderr, "Usage: %s <hostname>\n", aProgramName);
 }
