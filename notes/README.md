@@ -102,7 +102,7 @@ My notes from Computer Networks course at Chalmers.
 
 ### select functions
 `int select(int maxfdp1, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timeval *timeout);`
-```
+```c
 struct timeval {
     long
     tv_sec;//seconds
@@ -151,7 +151,7 @@ struct timeval {
 
 ## IP Addresses
 - 32-bit IP addresses are stored in an IP address struct
-```
+```c
 struct in_addr {
     unsigned int s_addr;    /* network byte order (big-endian) */
 };

@@ -38,7 +38,7 @@ $ host chalmers.se
 - [getaddrinfo()](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)
   - The getaddrinfo() function allocates and initializes a linked list of addrinfo structures, one for each network address that matches node and service, subject to any restrictions imposed by hints, and returns a pointer to the start of the list in res.  The items in the linked list are linked by the ai_next field.
 
-```
+```c
 struct addrinfo {
     int              ai_flags;
     int              ai_family;
@@ -60,7 +60,7 @@ struct addrinfo {
     - **NOTE** 
       - AF_INET has sockaddr_in. We cast sockaddr to sockaddr_in to access sin_addr variable were the internet adress is stored.
       - AF_INET6 har sockaddr_in6
-```
+```c
 struct sockaddr {
     sa_family_t sa_family;
     char
@@ -71,7 +71,7 @@ struct sockaddr {
 </br>
 
 - sockaddr_in
-```
+```c
 struct sockaddr_in {
     sa_family_t
     sin_family;                 // address family: AF_INET, AF_INET6
@@ -84,7 +84,7 @@ struct sockaddr_in {
 </br>
 
 - in_addr
-```
+```c
 struct in_addr {
     uint32_t	s_addr;         // Address in network byte order
 };
