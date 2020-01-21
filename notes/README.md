@@ -1,10 +1,9 @@
 # Notes
-My notes from Computer Networks course at Chalmers.
 
 ## OSI model
 - Application
   - Application protocol
-- Transport [**primary focus**]
+- ### **Transport** (primary focus)
   - TCP protocol
 - Network 
   - IP protocol

@@ -1,7 +1,7 @@
 # Translate hostname into IPv4 and IPv6
 
 ## Description 
-In this assignment,we resolved a host name into an IPv4 address. It is an short easy introduction to network programming using the BSD socket API in C/C++.
+In this assignment we resolved a host name into an IPv4 address. It is an short easy introduction to network programming using the BSD socket API in C/C++.
 
 ## How to run
 1. Compile 

@@ -1,5 +1,5 @@
 # Algorithms
-I wrote down all the [algorithms](algorithms.pdf) that we learned and proved during the course from the course literature *Self-Stabilization* by Shlomi Dolev.
+Some [algorithms](algorithms.pdf) from *Self-Stabilization* by Shlomi Dolev.
 
 ## Concepts
 ### Self-stabilizing systems requirements
